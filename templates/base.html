@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>Pythonic.nl Manager</title>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}style.css" /> 
+    </head>
+    <body>
+        <div id="body">
+            <div id="header">
+                <img src="{{ MEDIA_URL }}pythonic_logo.jpg">
+            </div>
+            <div id="nav">
+                <ul id="nav">
+                    <li><a href="/accounts/">User details</a></li>
+                    <li><a href="/sites/">Sites</a></li>
+                    {% comment %}
+                    <li><a href="/htpasswd/">Htpasswd</a></li>
+                    <li><a href="/mysql/">MySQL</a></li>
+                    {% endcomment %}
+                   <li><a href="/doc/">Documentation</a></li>
+                   <li><a href="/links/">Links</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                     <li><a href="/accounts/logout/">Log out</a></li>
+                </ul>
+            </div>
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

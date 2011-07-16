@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1> Account details</h1>
+{% if user %}
+    <ul>
+        <li>username: {{ user.username }}</li>
+        <li>home: {{ user.home }}</li>
+        <li>shell: {{ user.shell }}</li>
+        <li>fullname: {{ user.fullname }}</li>
+        <li> <a href="mailto:{{ user.username }}@pythonic.nl">{{ user.username }}@pythonic.nl</a> forward:
+        {% if user.forward %}
+            {{ user.forward }}
+        {% else %}
+            No 
+        {% endif %}
+    </ul>
+{% else %}
+    <p>No user info available.</p>
+{% endif %}
+
+{% endblock %}
