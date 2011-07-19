@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^$', include('pybilly.accounts.urls')),
 	(r'^sites/', include('pybilly.sites.urls')),
 	(r'^accounts/', include('pybilly.accounts.urls')),
+	(r'^invoices/', include('pybilly.invoices.urls')),
 	(r'^admin/', include(admin.site.urls)),
 )
 
