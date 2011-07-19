@@ -1,14 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-class Invoice(models.Model):
-	user = models.ForeignKey(User)
-	amount = models.IntegerField()
-	paid = models.BooleanField(default=False)
-	date = models.DateField()
-	description = models.CharField(max_length=100)
-	notes = models.CharField(max_length=500)
+import settings
 
 
 class Product(models.Model):
@@ -20,13 +13,25 @@ class Product(models.Model):
 		('Y', 'Yearly'),
 	)
 	cycle = models.CharField(max_length=1, choices=CYCLE_CHOICES)
-	description = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
+
+	def __unicode__(self):
+		return self.name
 
 
 class Subscription(models.Model):
 	user = models.ForeignKey(User)
 	product = models.ForeignKey(Product)
 	start = models.DateField()
-	end = models.DateField()
+	end = models.DateField(null=True)
 	active = models.BooleanField(default=True)
+
+	def __unicode__(self):
+		return "%s (%s)" % (self.user.username, self.product.name)
+
+
+class Invoice(models.Model):
+	subscription = models.ForeignKey(Subscription)
+	paid = models.BooleanField(default=False)
+	date = models.DateField()
 
