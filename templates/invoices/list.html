@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Invoices</h1>
+
+{% if invoices %}
+    <ul>
+    {% for invoice in invoices %}
+	    <li><a href="/invoices/{{ invoice.id }}/">{{ invoice }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Invoices.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+    <title>Pythonic.nl invoice</title>
+
+    <style type="text/css">
+        #content {
+            padding: 40px;
+            color: #222222;
+            font-size: 18px;
+            font-family: Verdana, Arial;
+         }
+
+         ul li {
+            list-style-type:none;
+            margin:0px;
+            padding: 5px;
+         }
+
+         img {
+            margin: 0px 0px 0px 200px;
+         }
+
+         h1 {
+             font-size: 35px;
+             margin: 0px 0px 0px 30px;
+             padding: 0px;
+         }
+
+
+        #about {
+            margin-top: 150px;
+            margin-left: 100px;
+            width: 400px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        table {
+            margin-top: 40px;
+        }
+
+        td.a {
+            background-color: #ddd;
+            font-weight: bold;
+            padding: 9px;
+        }
+
+        td.b {
+            background-color: #eee;
+            padding: 9px;
+        }
+
+    </style>
+    </head>
+
+    <body>
+       <div id="content">
+        <div id="header">
+            <img src="{{ MEDIA_ROOT }}/pythonic_logo.jpg">
+        </div>
+             <h1>Invoice</h1>
+            <p>
+
+            <ul>
+                <li>invoice date: {{ date }}</li>
+                <li>name: {{ first_name }} {{ last_name }}</li>
+                <li>email: {{ email }}</li>
+            </ul>
+
+
+            <table>
+                <tr><td class=a width=800>Description</td><td class=a></td><td class=a align="right">amount</td> </tr>
+                <tr><td class=b>{{ description }}</td><td class=b></td><td class=b align="right"> &euro;{{ amount }}</td></tr>
+                <tr><td></td><td class=a>Sub total</td><td class=a align="right"> &euro;{{ amount }}</td></tr>
+                <tr><td></td><td class=a>19% VAT</td><td class=a align="right"> &euro;{{ tax }}</td></tr>
+                <tr><td></td><td class=a>Total</td><td class=a align="right"> &euro;{{ total }}</td></tr>
+            </table>
+
+            <div id="about"> Pythonic.nl - Albert Luthulistraat 41D - 1091 NS Amsterdam - KvK nr. 51712865 - Bank 43.22.72.070 (ABN Amro)</div>
+
+
+        </div>
+    </body>
+</html>
